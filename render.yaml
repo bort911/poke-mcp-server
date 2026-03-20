@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: poke-mcp-server
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python src/server.py
+    plan: free
+    autoDeploy: true
+    envVars:
+      - key: POKE_API_KEY
+        sync: false
+      - key: ENVIRONMENT
+        value: production
